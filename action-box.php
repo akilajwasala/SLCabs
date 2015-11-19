@@ -179,12 +179,8 @@
           <!-- Start Call Action -->
           <div class="call-action call-action-boxed call-action-style1 clearfix">
             <!-- Call Action Button -->
-            <div class="button-side" style="margin-top:8px;"><a href="#" class="btn-system btn-large">Purchase It Now</a></div>
             <h2 class="primary"><strong>SLCabs Reservation</strong></h2>
             <p>Enter The Details Here.</p>
-			
-			
-			<center><h1>SLCabs</h1></center>
 
 			<?php
 			$output = "";
@@ -419,6 +415,8 @@
 
 			</form>
 			</div>
+			
+			<div class="button-side" style="margin-top:8px;"><a href="#" class="btn-system btn-large">Purchase It Now</a></div>
 			
           </div>
           <!-- End Call Action -->

@@ -6,7 +6,7 @@
 <head>
 
   <!-- Basic -->
-  <title>SLCabs | Reserve</title>
+  <title>Margo | File not Found</title>
 
   <!-- Define Charset -->
   <meta charset="utf-8">
@@ -17,7 +17,6 @@
   <!-- Page Description and Author -->
   <meta name="description" content="Margo - Responsive HTML5 Template">
   <meta name="author" content="iThemesLab">
-
 
   <!-- Bootstrap CSS  -->
   <link rel="stylesheet" href="asset/css/bootstrap.min.css" type="text/css" media="screen">
@@ -34,8 +33,22 @@
   <!-- Responsive CSS Styles  -->
   <link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
 
+  <!-- Css3 Transitions Styles  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css" media="screen">
+
   <!-- Color CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="css/colors/red.css" title="red" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/jade.css" title="jade" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/green.css" title="green" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/blue.css" title="blue" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/beige.css" title="beige" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/cyan.css" title="cyan" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/orange.css" title="orange" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/peach.css" title="peach" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/pink.css" title="pink" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/purple.css" title="purple" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/sky-blue.css" title="sky-blue" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/yellow.css" title="yellow" media="screen" />
 
   <!-- Margo JS  -->
   <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -53,7 +66,9 @@
   <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
   <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
   <script type="text/javascript" src="js/jquery.parallax.js"></script>
+  <script type="text/javascript" src="js/mediaelement-and-player.js"></script>
   <script type="text/javascript" src="js/jquery.slicknav.js"></script>
+  
 
   <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -61,14 +76,11 @@
 </head>
 
 <body>
-
   <!-- Container -->
   <div id="container">
-
     <!-- Start Header -->
     <div class="hidden-header"></div>
     <header class="clearfix">
-
       <!-- Start Top Bar -->
       <div class="top-bar">
         <div class="container">
@@ -76,27 +88,25 @@
             <div class="col-md-6">
               <!-- Start Contact Info -->
               <ul class="contact-details">
-                <li><a href="#"><i class="fa fa-map-marker"></i> House-54/A, London, UK</a>
-                </li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> info@yourcompany.com</a>
-                </li>
-                <li><a href="#"><i class="fa fa-phone"></i> +12 345 678 000</a>
-                </li>
+                <li><a href="#"><i class="fa fa-map-marker"></i> House-54/A, London, UK</a> </li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> info@yourcompany.com</a> </li>
+                <li><a href="#"><i class="fa fa-phone"></i> +12 345 678 000</a> </li>
               </ul>
               <!-- End Contact Info -->
             </div>
             <div class="col-md-6">
               <!-- Start Social Links -->
               <ul class="social-list">
-                <li>
-                  <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a class="google itl-tooltip" data-placement="bottom" title="Google Plus" href="#"><i class="fa fa-google-plus"></i></a>
-                </li>
+                <li> <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="#"><i class="fa fa-facebook"></i></a> </li>
+                <li> <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li> <a class="google itl-tooltip" data-placement="bottom" title="Google Plus" href="#"><i class="fa fa-google-plus"></i></a> </li>
+                <li> <a class="dribbble itl-tooltip" data-placement="bottom" title="Dribble" href="#"><i class="fa fa-dribbble"></i></a> </li>
+                <li> <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a> </li>
+                <li> <a class="flickr itl-tooltip" data-placement="bottom" title="Flickr" href="#"><i class="fa fa-flickr"></i></a> </li>
+                <li> <a class="tumblr itl-tooltip" data-placement="bottom" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a> </li>
+                <li> <a class="instgram itl-tooltip" data-placement="bottom" title="Instagram" href="#"><i class="fa fa-instagram"></i></a> </li>
+                <li> <a class="vimeo itl-tooltip" data-placement="bottom" title="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a> </li>
+                <li> <a class="skype itl-tooltip" data-placement="bottom" title="Skype" href="#"><i class="fa fa-skype"></i></a> </li>
               </ul>
               <!-- End Social Links -->
             </div>
@@ -104,34 +114,77 @@
         </div>
       </div>
       <!-- End Top Bar -->
-
       <!-- Start Header ( Logo & Naviagtion ) -->
       <div class="navbar navbar-default navbar-top">
         <div class="container">
           <div class="navbar-header">
             <!-- Stat Toggle Nav Link For Mobiles -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <i class="fa fa-bars"></i>
-            </button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-bars"></i> </button>
             <!-- End Toggle Nav Link For Mobiles -->
-            <a class="navbar-brand" href="index.html"><img alt="" src="images/logo.png"></a>
+            <a class="navbar-brand" href="index.html"><img alt="" src="images/margo.png"></a>
           </div>
           <div class="navbar-collapse collapse">
             <!-- Stat Search -->
-            <div class="search-side">
-              <a class="show-search"><i class="fa fa-search"></i></a>
+            <div class="search-side"> <a class="show-search"><i class="fa fa-search"></i></a>
               <div class="search-form">
                 <form autocomplete="off" role="search" method="get" class="searchform" action="#">
-                  <input type="text" value="" name="s" id="s" placeholder="Search the site...">
-                </form>
+                  <input type="text" value="" name="s" id="s" placeholder="Search the site..."> </form>
               </div>
             </div>
             <!-- End Search -->
             <!-- Start Navigation List -->
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="index.html">Home</a>
+              <li> <a href="index.html">Home</a>
+                <ul class="dropdown">
+                  <li><a href="index.html">Home Main Version</a></li>
+                  <li><a href="index-01.html">Home Version 1</a></li>
+                  <li><a href="index-02.html">Home Version 2</a></li>
+                  <li><a href="index-03.html">Home Version 3</a></li>
+                  <li><a href="index-04.html">Home Version 4</a></li>
+                  <li><a href="index-05.html">Home Version 5</a></li>
+                  <li><a href="index-06.html">Home Version 6</a></li>
+                  <li><a href="index-07.html">Home Version 7</a></li>
+                  <!-- <li><a href="index-08.html">Home Version 8</a></li> -->
+                </ul>
               </li>
+              <li> <a class="active" href="about.html">Pages</a>
+                <ul class="dropdown">
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                  <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                  <li><a class="active" href="404.html">404 Page</a></li>
+                </ul>
+              </li>
+              <li> <a href="#">Shortcodes</a>
+                <ul class="dropdown">
+                  <li><a href="tabs.html">Tabs</a></li>
+                  <li><a href="buttons.html">Buttons</a></li>
+                  <li><a href="action-box.html">Action Box</a></li>
+                  <li><a href="testimonials.html">Testimonials</a></li>
+                  <li><a href="latest-posts.html">Latest Posts</a></li>
+                  <li><a href="latest-projects.html">Latest Projects</a></li>
+                  <li><a href="pricing.html">Pricing Tables</a></li>
+                  <!-- <li><a href="animated-graphs.html">Animated Graphs</a></li> -->
+                  <li><a href="accordion-toggles.html">Accordion & Toggles</a></li>
+                </ul>
+              </li>
+              <li> <a href="portfolio-3.html">Portfolio</a>
+                <ul class="dropdown">
+                  <li><a href="portfolio-2.html">2 Columns</a></li>
+                  <li><a href="portfolio-3.html">3 Columns</a></li>
+                  <li><a href="portfolio-4.html">4 Columns</a></li>
+                  <li><a href="single-project.html">Single Project</a></li>
+                </ul>
+              </li>
+              <li> <a href="blog.html">Blog</a>
+                <ul class="dropdown">
+                  <li><a href="blog.html">Blog - right Sidebar</a></li>
+                  <li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a></li>
+                  <li><a href="single-post.html">Blog Single Post</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
             <!-- End Navigation List -->
           </div>
@@ -139,295 +192,112 @@
 
         <!-- Mobile Menu Start -->
         <ul class="wpb-mobile-menu">
-			  <li>
-                <a href="index.html">Home</a>
+          <li>
+            <a href="index.html">Home</a>
+            <ul class="dropdown">
+              <li><a href="index.html">Home Main Version</a>
               </li>
+              <li><a href="index-01.html">Home Version 1</a>
+              </li>
+              <li><a href="index-02.html">Home Version 2</a>
+              </li>
+              <li><a href="index-03.html">Home Version 3</a>
+              </li>
+              <li><a href="index-04.html">Home Version 4</a>
+              </li>
+              <li><a href="index-05.html">Home Version 5</a>
+              </li>
+              <li><a href="index-06.html">Home Version 6</a>
+              </li>
+              <li><a href="index-07.html">Home Version 7</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="active" href="about.html">Pages</a>
+            <ul class="dropdown">
+              <li><a href="about.html">About</a>
+              </li>
+              <li><a href="services.html">Services</a>
+              </li>
+              <li><a href="right-sidebar.html">Right Sidebar</a>
+              </li>
+              <li><a href="left-sidebar.html">Left Sidebar</a>
+              </li>
+              <li><a class="active" href="404.html">404 Page</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Shortcodes</a>
+            <ul class="dropdown">
+              <li><a href="tabs.html">Tabs</a>
+              </li>
+              <li><a href="buttons.html">Buttons</a>
+              </li>
+              <li><a href="action-box.html">Action Box</a>
+              </li>
+              <li><a href="testimonials.html">Testimonials</a>
+              </li>
+              <li><a href="latest-posts.html">Latest Posts</a>
+              </li>
+              <li><a href="latest-projects.html">Latest Projects</a>
+              </li>
+              <li><a href="pricing.html">Pricing Tables</a>
+              </li>
+              <li><a href="accordion-toggles.html">Accordion & Toggles</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="portfolio-3.html">Portfolio</a>
+            <ul class="dropdown">
+              <li><a href="portfolio-2.html">2 Columns</a>
+              </li>
+              <li><a href="portfolio-3.html">3 Columns</a>
+              </li>
+              <li><a href="portfolio-4.html">4 Columns</a>
+              </li>
+              <li><a href="single-project.html">Single Project</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="blog.html">Blog</a>
+            <ul class="dropdown">
+              <li><a href="blog.html">Blog - right Sidebar</a>
+              </li>
+              <li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a>
+              </li>
+              <li><a href="single-post.html">Blog Single Post</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
         </ul>
         <!-- Mobile Menu End -->
 
       </div>
       <!-- End Header ( Logo & Naviagtion ) -->
-
     </header>
     <!-- End Header -->
-
-
-    <!-- Start Page Banner -->
-    <div class="page-banner no-subtitle">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>Reservation</h2>
-          </div>
-          <div class="col-md-6">
-            <ul class="breadcrumbs">
-              <li><a href="#">Home</a></li>
-              <li>Reservation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Page Banner -->
-
-
+    
     <!-- Start Content -->
     <div id="content">
       <div class="container">
         <div class="page-content">
-
-          <!-- Start Call Action -->
-          <div class="call-action call-action-boxed call-action-style1 clearfix">
-            <!-- Call Action Button -->
-            <div class="button-side" style="margin-top:8px;"><a href="#" class="btn-system btn-large">Purchase It Now</a></div>
-            <h2 class="primary"><strong>SLCabs Reservation</strong></h2>
-            <p>Enter The Details Here.</p>
-			
-			
-			<center><h1>SLCabs</h1></center>
-
-			<?php
-			$output = "";
-			//variables
-			$vehicle = $pickDate = $pickTime = $dropoffDate = $dropoffTime = $noOfPassengers = $driver = $pickupLoc = $dropoffLoc = "";
-			//error variables
-			$vehicleEr = $pickDateEr = $pickTimeEr = $dropoffDateEr = $dropoffTimeEr = $noOfPassengersEr = $driverEr = $pickupLocEr = $dropoffLocEr = "";
-				
-				
-			//assign values for variables
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				if (empty($_POST["vehicle"])) {
-					$vehicleEr = "please select a vehicle.";
-				} else {
-					$vehicle = test_input($_POST["vehicle"]);
-				}
-					
-				if(empty($_POST["pickDate"])){
-					$pickDateEr = "please enter a pick-up day.";
-				}else{
-					$pickDate = test_input($_POST["pickDate"]);
-				}
-					
-				$pickTime = ($_POST['pickuphr']).":".($_POST['pickupmin']).":".($_POST['pickupampm']);
-					
-				if (empty($_POST["dropoffDate"])) {
-					$dropoffDateEr = "please enter the drop-off day.";
-				} else {
-					$dropoffDate = test_input($_POST["dropoffDate"]);
-				}
-					
-				$dropoffTime = ($_POST['dropoffhr']).":".($_POST['dropoffmin']).":".($_POST['dropoffampm']);
-
-				if (empty($_POST["noOfPassengers"])) {
-					$noOfPassengersEr = "select the number of passengers.";
-				} else {
-					$noOfPassengers = test_input($_POST["noOfPassengers"]);
-				}
-					
-				if (empty($_POST["driver"])) {
-					$driverEr = "select yes or no..";
-				} else {
-					$driver = test_input($_POST["driver"]);
-				}
-					
-				//pickupLoc & dropoffLoc are optional
-				$pickupLoc = ($_POST["pickupLoc"]);
-				$dropoffLoc = ($_POST["dropoffLoc"]);
-			}	
-				
-			function test_input($data) {
-				$data = trim($data);
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				return $data;
-			}
-				
-			//database connection
-			if(isset($_POST["submit"])){
-				$mydb = new mysqli('localhost','slcabs','slcabs','slcabs');
-				if($mydb->connect_error){
-					die('Connect Error : '.$mydb->connect_errno.':'.$mydb->connect_error);
-				}
-				
-				if(empty($vehicle) || empty($pickDate) || empty($dropoffDate) || empty($noOfPassengers) || empty($driver)){
-					$output = "one or more required fields are blank!";
-				}else{
-					$sql = "INSERT INTO reservation (vehicle, pickDate, pickTime, dropoffDate, dropoffTime, noOfPassengers, driver, pickupLoc, dropoffLoc) VALUES (
-						'$vehicle',
-						'$pickDate',
-						'$pickTime',
-						'$dropoffDate',
-						'$dropoffTime',
-						'$noOfPassengers',
-						'$driver',
-						'$pickupLoc',
-						'$dropoffLoc')";
-						
-					$insert = $mydb->query($sql);
-				
-					if($insert){
-						$vehicle = $pickDate = $pickTime = $dropoffDate = $dropoffTime = $noOfPassengers = $driver = $pickupLoc = $dropoffLoc = "";
-						session_start();
-						$_SESSION["new"] = "";
-						header("Location: customerDetails.php");
-						
-					}else{
-						die("Error: {$mydb->errno} : {$mydb->error}");
-					}
-				}
-				$mydb->close();
-			}
-
-			?>
-
-
-			<div style = "margin-left:200px;">
-			<div class="style1"><?php echo $output;?></div>
-
-			<form id="reservation" action="" method="post"> 
-						
-			<h3>SELECT A VEHICLE  <em style="color:red">*</em></h3>
-			<select id="car" name="vehicle" onChange="gotourl();" >
-			<option value="" selected="selected">--</option>
-			<option value="2365"<?php if($vehicle=="2365"){?> selected <?php } ?>>Toyota Fortuner 4X4</option>
-			<option value="1842"<?php if($vehicle=="1842"){?> selected <?php } ?>>Mitsubishi Montero Sport 4X4</option>
-			<option value="1862"<?php if($vehicle=="1862"){?> selected <?php } ?>>SsangYong Rexton 4X4</option>
-			<option value="1866"<?php if($vehicle=="1866"){?> selected <?php } ?>>Toyota Rav-4</option>
-			<option value="1845"<?php if($vehicle=="1845"){?> selected <?php } ?>>Land Rover Defender 4X4</option>
-			<option value="2325"<?php if($vehicle=="2325"){?> selected <?php } ?>>Mitsubishi Outlander 4X4</option>
-			<option value="2227"<?php if($vehicle=="2227"){?> selected <?php } ?>>Mitsubishi Montero GDI 4X4</option>
-			<option value="1839"<?php if($vehicle=="1839"){?> selected <?php } ?>>Toyota Vigo Hi Lux 4X4</option>
-			</select><span class="error"> <?php echo $vehicleEr;?></span>
-								
-			<h3>SELECT THE BOOKING PERIOD & LOCATION</h3>
-
-			<div>
-			<label for="from">Pick up day <em style="color:red">*</em> (yyyy-mm-dd)</label><br>
-			<input type="date" name="pickDate" value="<?php echo $pickDate;?>"><span class="error"> <?php echo $pickDateEr;?></span>
-			at 
-			<select style="width:55px;" name="pickuphr" >
-			<option value="">--</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-			</select>
-									
-			: <select style="width:55px;" name="pickupmin" >
-			<option value="">--</option>
-			<option value="00">00</option>
-			<option value="15">15</option>
-			<option value="30">30</option>
-			<option value="45">45</option>
-			</select>
-
-			: <select name="pickupampm" >
-			<option value="">--</option>
-			<option value="AM">AM</option>
-			<option value="PM">PM</option>
-			</select>
-			</div><br>
-
-			<div>
-			<label for="from">Drop off day <em style="color:red">*</em> (yyyy-mm-dd)</label><br>
-			<input type="date" name="dropoffDate" value="<?php echo $dropoffDate;?>"><span class="error"> <?php echo $dropoffDateEr;?></span>
-			at 
-			<select style="width:55px;" name="dropoffhr" >
-			<option value="">--</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-			</select>
-									
-			: <select style="width:55px;" name="dropoffmin" >
-			<option value="">--</option>
-			<option value="00">00</option>
-			<option value="15">15</option>
-			<option value="30">30</option>
-			<option value="45">45</option>
-			</select>
-
-			: <select name="dropoffampm" >
-			<option value="">--</option>
-			<option value="AM">AM</option>
-			<option value="PM">PM</option>
-			</select>
-			</div><br>
-
-			<div>
-			<label for="from">NO of Passengers <em style="color:red">*</em></label><br>
-			<select name="noOfPassengers" >
-			<option value="" selected="selected">--</option>
-			<option value="1"<?php if($noOfPassengers=="1"){?> selected <?php } ?>>1</option>
-			<option value="2"<?php if($noOfPassengers=="2"){?> selected <?php } ?>>2</option>
-			<option value="3"<?php if($noOfPassengers=="3"){?> selected <?php } ?>>3</option>
-			<option value="4"<?php if($noOfPassengers=="4"){?> selected <?php } ?>>4</option>
-			<option value="5"<?php if($noOfPassengers=="5"){?> selected <?php } ?>>5</option>
-			<option value="6"<?php if($noOfPassengers=="6"){?> selected <?php } ?>>6</option>
-			<option value="7"<?php if($noOfPassengers=="7"){?> selected <?php } ?>>7</option>
-			<option value="8"<?php if($noOfPassengers=="8"){?> selected <?php } ?>>8</option>
-			<option value="9"<?php if($noOfPassengers=="9"){?> selected <?php } ?>>9</option>
-			<option value="10"<?php if($noOfPassengers=="10"){?> selected <?php } ?>>10</option>
-			</select><span class="error"> <?php echo $noOfPassengersEr;?></span>
-			</div><br>
-
-			<div>
-			<label for="from">Need a Driver <em style="color:red">*</em></label><br>
-			<select name="driver" >
-			<option value="" selected="selected">--</option>
-			<option value="Yes"<?php if($driver=="Yes"){?> selected <?php } ?>>Yes</option>
-			<option value="No"<?php if($driver=="No"){?> selected <?php } ?>>No</option>
-			</select><span class="error"> <?php echo $driverEr;?></span>
-			</div><br>
-
-			<div>
-			<label>Pick-up Location</label>
-			<select name="pickupLoc" >
-			<option value="pick_add">SLCabs Office</option>
-			<option value="pick_flight">Colombo Airport</option>
-			<option value="pick_other">Other</option>
-			</select>
-			</div><br>
-
-			<div>
-			<label>Drop-off Location</label>
-			<select name="dropoffLoc" >
-			<option value="drop_add">SLCabs Office</option>
-			<option value="drop_flight">Colombo Airport</option>
-			<option value="drop_other">Other</option>
-			</select>
-			</div><br>
-
-			<input type="submit" name="submit" value="Reserve">
-
-			</form>
-			</div>
-			
+          <div class="error-page">
+            <h1>404</h1>
+            <h3>File not Found</h3>
+            <p>We're sorry, but the page you were looking for doesn't exist.</p>
+            <div class="text-center"><a href="index.html" class="btn-system btn-small">Back To Home</a></div>
           </div>
-          <!-- End Call Action -->
-
         </div>
       </div>
     </div>
     <!-- End Content -->
-
 
     <!-- Start Footer -->
     <footer>
