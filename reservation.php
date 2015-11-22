@@ -409,14 +409,11 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 			<option value="drop_other">Other</option>
 			</select>
 			</div><br>
-
-			<input type="submit" name="submit" value="Reserve">
+			
+			<input class="btn-system btn-large" style="margin-top:8px;" type="submit" name="submit" value="Reserve">
 
 			</form>
 			</div>
-			
-			<div class="button-side" style="margin-top:8px;"><a href="#" class="btn-system btn-large">Purchase It Now</a></div>
-			
           </div>
           <!-- End Call Action -->
 
