@@ -1,3 +1,91 @@
+<?php
+
+//define variables and set to empty values
+$nameError=$emailError=$subjectError=$messageError="";
+$name=$email=$subject=$message="";
+
+//require_once("");
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+    if(empty($_POST["name"])){
+        $nameError="Name is required";
+    }
+    else{
+        $name=  test_input($_POST["name"]);
+        if(!preg_match("/^[a-zA-Z]*$/",$name)){
+            $nameError="Only letters and white space allowed";
+        }
+    }
+    
+    if(empty($_POST["email"])){
+        $emailError="Email is required";
+    }
+    else{
+        $email=  test_input($_POST["email"]);
+        //check if email address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+       		$emailError = "Invalid email format";
+     	}
+    }
+    
+    if(empty($_POST["subject"])){
+        $subjectError="Subject is required";
+    }
+    else{
+        $subject=  test_input($_POST["subject"]);
+        if(!preg_match("/^[a-zA-Z]*$/",$subject)){
+            $subjectError="Only letters and white space allowed";
+        }
+    }
+    
+    if(empty($_POST["message"])){
+        $messageError="Message is required";
+    }
+    else{
+        $message=  test_input($_POST["message"]);
+        if(!preg_match("/^[a-zA-Z]*$/",$message)){
+            $messageError="Only letters and white space allowed";
+        }
+    }
+
+}
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+//database connection
+if(isset($_POST["submit"])){
+	$mydb = new mysqli('localhost','slcabs','slcabs','slcabs');
+	if($mydb->connect_error){
+		die('Connect Error : '.$mydb->connect_errno.':'.$mydb->connect_error);
+	}
+	if(empty($name) || empty($email) || empty($subject) || empty($message)){
+		$output ="";
+	}else{
+		$sql = "INSERT INTO contact(name, email, subject, message) VALUES (
+			'$name',
+			'$email',
+			'$subject',
+			'$message')";
+		
+		$insert = $mydb->query($sql);
+		
+		if($insert){
+			$name=$email=$subject=$message="";
+			session_start();
+			$_SESSION["new"] = "";
+			header("Location: contact.php");
+		}else{
+			die("Error: {$mydb->errno} : {$mydb->error}");
+		}
+			
+	}
+	$mydb->close();
+}
+
+?>
 <!doctype html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
@@ -6,7 +94,7 @@
 <head>
 
   <!-- Basic -->
-  <title>Margo | Right Sidebar</title>
+  <title>Margo | Contact</title>
 
   <!-- Define Charset -->
   <meta charset="utf-8">
@@ -65,7 +153,9 @@
   <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
   <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
   <script type="text/javascript" src="js/jquery.parallax.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
   <script type="text/javascript" src="js/jquery.slicknav.js"></script>
+
 
   <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -73,6 +163,7 @@
 </head>
 
 <body>
+
 
   <!-- Container -->
   <div id="container">
@@ -88,11 +179,11 @@
             <div class="col-md-6">
               <!-- Start Contact Info -->
               <ul class="contact-details">
-                <li><a href="#"><i class="fa fa-map-marker"></i> House-54/A, London, UK</a>
+                <li><a href="#"><i class="fa fa-map-marker"></i> No.294, Galle Rd, Nupe, Matara.</a>
                 </li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> info@yourcompany.com</a>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> slankacabs@gmail.com</a>
                 </li>
-                <li><a href="#"><i class="fa fa-phone"></i> +12 345 678 000</a>
+                <li><a href="#"><i class="fa fa-phone"></i> +71 7 98 98 98</a>
                 </li>
               </ul>
               <!-- End Contact Info -->
@@ -208,14 +299,14 @@
                 </ul>
               </li>
               <li>
-                <a class="active" href="blog.html">Blog</a>
+                <a href="blog.html">Blog</a>
                 <ul class="dropdown">
-                  <li><a class="active" href="blog.html">Blog - right Sidebar</a></li>
+                  <li><a href="blog.html">Blog - right Sidebar</a></li>
                   <li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a></li>
                   <li><a href="single-post.html">Blog Single Post</a></li>
                 </ul>
               </li>
-              <li><a href="contact.php">Contact</a></li>
+              <li><a class="active" href="contact.html">Contact</a></li>
             </ul>
             <!-- End Navigation List -->
           </div>
@@ -294,9 +385,9 @@
             </ul>
           </li>
           <li>
-            <a class="active" href="blog.html">Blog</a>
+            <a href="blog.html">Blog</a>
             <ul class="dropdown">
-              <li><a class="active" href="blog.html">Blog - right Sidebar</a>
+              <li><a href="blog.html">Blog - right Sidebar</a>
               </li>
               <li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a>
               </li>
@@ -305,7 +396,7 @@
             </ul>
           </li>
           <li>
-            <a href="contact.php">Contact</a>
+            <a class="active" href="contact.html">Contact</a>
           </li>
         </ul>
         <!-- Mobile Menu End -->
@@ -316,277 +407,261 @@
     </header>
     <!-- End Header -->
 
+    <!-- Start Map -->
+    <div id="map" data-position-latitude="5.948083" data-position-longitude="80.536900"></div>
+    <script>
+      (function($) {
+        $.fn.CustomMap = function(options) {
 
-    <!-- Start Page Banner -->
-    <div class="page-banner">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>Blog</h2>
-            <p>Blog Page With Right Sidebar</p>
-          </div>
-          <div class="col-md-6">
-            <ul class="breadcrumbs">
-              <li><a href="#">Home</a></li>
-              <li>Blog</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Page Banner -->
+          var posLatitude = $('#map').data('position-latitude'),
+            posLongitude = $('#map').data('position-longitude');
 
+          var settings = $.extend({
+            home: {
+              latitude: posLatitude,
+              longitude: posLongitude
+            },
+            text: '<div class="map-popup"><h4>Web Development | ZoOm-Arts</h4><p>A web development blog for all your HTML5 and WordPress needs.</p></div>',
+            icon_url: $('#map').data('marker-img'),
+            zoom: 15
+          }, options);
+
+          var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
+
+          return this.each(function() {
+            var element = $(this);
+
+            var options = {
+              zoom: settings.zoom,
+              center: coords,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              mapTypeControl: false,
+              scaleControl: false,
+              streetViewControl: false,
+              panControl: true,
+              disableDefaultUI: true,
+              zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.DEFAULT
+              },
+              overviewMapControl: true,
+            };
+
+            var map = new google.maps.Map(element[0], options);
+
+            var icon = {
+              url: settings.icon_url,
+              origin: new google.maps.Point(0, 0)
+            };
+
+            var marker = new google.maps.Marker({
+              position: coords,
+              map: map,
+              icon: icon,
+              draggable: false
+            });
+
+            var info = new google.maps.InfoWindow({
+              content: settings.text
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+              info.open(map, marker);
+            });
+
+            var styles = [{
+              "featureType": "landscape",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 65
+              }, {
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "poi",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 51
+              }, {
+                "visibility": "simplified"
+              }]
+            }, {
+              "featureType": "road.highway",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "visibility": "simplified"
+              }]
+            }, {
+              "featureType": "road.arterial",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 30
+              }, {
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "road.local",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 40
+              }, {
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "transit",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "visibility": "simplified"
+              }]
+            }, {
+              "featureType": "administrative.province",
+              "stylers": [{
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "water",
+              "elementType": "labels",
+              "stylers": [{
+                "visibility": "on"
+              }, {
+                "lightness": -25
+              }, {
+                "saturation": -100
+              }]
+            }, {
+              "featureType": "water",
+              "elementType": "geometry",
+              "stylers": [{
+                "hue": "#ffff00"
+              }, {
+                "lightness": -25
+              }, {
+                "saturation": -97
+              }]
+            }];
+
+            map.setOptions({
+              styles: styles
+            });
+          });
+
+        };
+      }(jQuery));
+
+      jQuery(document).ready(function() {
+        jQuery('#map').CustomMap();
+      });
+    </script>
+    <!-- End Map -->
 
     <!-- Start Content -->
     <div id="content">
       <div class="container">
-        <div class="row blog-page">
 
-          <!-- Start Blog Posts -->
-          <div class="col-md-9 blog-box">			
-                      
-            <!-- Start Post -->
-            <div class="blog-post standard-post">
-			  <!-- Post Thumb -->
-              <div class="post-head">
-                <a href="#">
-                  <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                  <img alt="" src="images/blog-02.jpg">
-                </a>
-              </div>
-              <!-- Post Content -->
-              <div class="post-content">
-                <div class="post-type"><i class="fa fa-pencil"></i></div>
-                <h2><a href="#">Classic Mini Tour (4 Days / 3 Nights)</a></h2>
-                <ul class="post-meta">
-                  <li>By <a href="#">iThemesLab</a></li>
-                  <li>December 30, 2013</li>
-                  <li><a href="#">WordPress</a>, <a href="#">Graphic</a></li>
-                  <li><a href="#">4 Comments</a></li>
-                </ul>
-				<p><h4> Day 1 : Colombo – Kandy</h4></p>
-                <p>Arrive at Bandaranaike International Airport and met by "Visit SLCabs" representatives. You leave Colombo in the morning and drive along busy highways into the interior of the island. In Pinnewela you will visit the elephant orphanage, where about eighty elephants are well looked after, which have been found throughout the country abandoned by their herd and brought there. You can watch milk feeding for baby jumbos and the daily bath in the nearby river.After this you will reach, the old royal city of Kandy, beautifully nestled between green hills. In Kandy, you will visit the temple of the tooth relic, which is the holiest shrine in Sri Lanka, where the tooth relic of Lord Buddha is highly venerated.In the evening you'll have the opportunity to see a dance performance, where you will see the famous Kandyan dances, as well as up-country and devil dances.Overnight in Kandy.</p>
-				<p><h4> Day 2 : Dambulla - Sigiriya</h4></p>
-				<p>After breakfast visit the world famous Botanical Garden in Peradeniya. The park dates back to 1371 under the reign of king Vikrama Bahu III when he held court here. The English put the cornerstone of the present garden in 1821. Here will find a very large variety of orchids, palms, bushes, as well as tropical plants and flowers of all type.Then you will leave Kandy and will proceed to the north. Along the road you will see paddy fields, coconut groves, rubber and spice gardens and plantations. You will stop at one of the spice gardens and there you can see a lot of spice plants, bushes and plants cropping spices. After this visit you will ascend for a visit the Dambulla cave temple. This temple complex consists of five separate caverns with numerous statues of the Buddha and Hindu deities.Overnight in Sigiriya.</p>
-				<p><h4>Day 3 : Sigiriya - Polonnaruwa</h4></p>
-				<p>After breakfast you will visit the Sigiriya rock. This impressive monolith which rises 200 meters out of the jungle has been transformed in the 5th Century by king Kashyapa into a fortress and became his capital. Here you will see the frescoes of the Sigiriya Maidens.In the afternoon you will drive to Polonnaruwa for the visit of the well preserved remains of the city which has been the capital in Sri Lanka from the 11th to the 13th Century. You will see the excavations: Temples, Dagobas, the royal palace, the royal library, ect.Overnight in Sigiriya.</p>
-				<p><h4>Day 4 : Anuradhapura - Colombo</h4></p>
-				<p>After breakfast you leave to Anuradhapura in order to visit the ancient 1st capital of Sri Lanka. You will see some of the most famous as well as the tallest Dagoba of Sri Lanka, remains from palaces, temples, monasteries, ceremonial baths and the temple of the holy Bo-tree.After the visit of Anuradhapura you leave for Colombo, on the way you pass paddy fields and coconut plantations. You will reach Colombo or the airport in the evening.</p>
-				
-              </div>
-            </div>
-            <!-- End Post -->
+        <div class="row">
 
-			<!-- Start Post -->
-            <div class="blog-post image-post">
-              <!-- Post Thumb -->
-              <div class="post-head">
-                <a class="lightbox" title="This is an image title" href="images/blog-01.jpg">
-                  <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                  <img alt="" src="images/blog-01.jpg">
-                </a>
+          <div class="col-md-8">
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Contact Us</span></h4>
+
+            <!-- Start Contact Form -->
+            <form role="form" class="contact-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="contact-form" method="post">
+              <div class="form-group">
+                <div class="controls">
+                  <input type="text" placeholder="Name" name="name">
+                </div>
               </div>
-              <!-- Post Content -->
-              <div class="post-content">
-                <div class="post-type"><i class="fa fa-picture-o"></i></div>
-                <h2><a href="#">Cultural Heritage Tour (5 Days / 4 Nights)</a></h2>
-                <ul class="post-meta">
-                  <li>By <a href="#">iThemesLab</a></li>
-                  <li>December 30, 2013</li>
-                  <li><a href="#">WordPress</a>, <a href="#">Graphic</a></li>
-                  <li><a href="#">4 Comments</a></li>
-                </ul>
-                <p><h4>Day 1 : Negombo</h4></p>
-				<p>Be met at airport by guide. Transfer to a beach hotel in Negambo , visit a fishing village or at leisure in the beach . Overnight stay in Negambo.</p>
-				<p><h4>Day 2 : Sigiriya - Pinnawela Elephant Orphanage</h4></p>
-				<p>After breakfast proceed to Sigiriya - en route take a short break at Pinnawela Elephant Orphanage. At this orphanage you will find elephants of all ages that have been abandoned and the unique feature is that you feed the baby elephants with milk bottles during the feeding times. After lunch visit the Rock Fortress of Sigiriya which tells a tale of power, intrigue and tragedy.</p>
-				<p><h4>Day 3 : Anuradhapura - Isurumuniya Rock Temple</h4></p>
-				<p>Leave for Anuradhapura after breakfast. First Capital of Sri Lanka in the 3 rd Century BC. Declared a World Heritage Site.Visit Sri Maha Bodhi, the oldest historically documented tree in the world, the Brazen Palace , Dagobas, Ruwanwelisaya, Abeygiri & Jetawana Monasteries, finely preserved rock-cut statues of Lord Buddha and ruins of palaces, Isurumuniya rock temple.overnight at Anuradhapura.</p>
-				<p><h4>Day 4 : Kandy - Dambulla</h4></p>
-				<p>Leave for Kandy via Dambulla. See the Golden Rock, a cave temple which dates back to the 1 st Century.BC. From Dambulla drive to Matale to visit a spice garden. In Kandy , visit the Temple of the Tooth. View a cultural dance.Dinner and overnight at Kandy.</p>
-				<p><h4>Day 5 : Peradeniya Botanical Gardens</h4></p>
-				<p>After early breakfast, Leave for Colombo or the airport.Enroute, visit the Peradeniya Botanical Gardens.</p>
+              <div class="form-group">
+                <div class="controls">
+                  <input type="email" class="email" placeholder="Email" name="email">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="controls">
+                  <input type="text" class="requiredField" placeholder="Subject" name="subject">
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <div class="controls">
+                  <textarea rows="7" placeholder="Message" name="message"></textarea>
+                </div>
+              </div>
+              <button type="submit" id="submit" class="btn-system btn-large">Send</button>
+              <div id="success" style="color:#34495e;"></div>
+            </form>
+            <!-- End Contact Form -->
+
+			<!-- Post Content -->
+			<div class="post-content">
+			<div class="post-type"><i class="fa fa-link"></i></div>
+			<h2><a href="#">Comments</a></h2>
+			<ul class="post-meta">
+			  <li>By <a href="#">iThemesLab</a></li>
+			  <li>December 30, 2013</li>
+			  <li><a href="#">WordPress</a>, <a href="#">Graphic</a></li>
+			  <li><a href="#">4 Comments</a></li>
+			</ul>
+			<p>
+				<?php
+				echo $subject;
+				echo "<br>";
+				echo $message;
+				?>
+			</p>
 			
-              </div>
-            </div>
-            <!-- End Post -->
-			
-            <!-- Start Post -->
-            <div class="blog-post gallery-post">
-              <!-- Post Gallery -->
-              <div class="post-head">
-                <div class="post-slider touch-slider">
-                  <div class="item">
-                    <a class="lightbox" title="This is an image title" href="images/blog-01.jpg" data-lightbox-gallery="gallery1">
-                      <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                      <img alt="" src="images/blog-01.jpg">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a class="lightbox" title="This is an image title" href="images/blog-02.jpg" data-lightbox-gallery="gallery1">
-                      <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                      <img alt="" src="images/blog-02.jpg">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a class="lightbox" title="This is an image title" href="images/blog-03.jpg" data-lightbox-gallery="gallery1">
-                      <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                      <img alt="" src="images/blog-03.jpg">
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- Post Content -->
-              <div class="post-content">
-                <div class="post-type"><i class=" fa fa-picture-o"></i></div>
-                <h2><a href="#">Gallery Posts</a></h2>
-                <ul class="post-meta">
-                  <li>By <a href="#">iThemesLab</a></li>
-                  <li>December 30, 2013</li>
-                  <li><a href="#">WordPress</a>, <a href="#">Graphic</a></li>
-                  <li><a href="#">4 Comments</a></li>
-                </ul>
-                </div>
-            </div>
-            <!-- End Post -->        
-        
-            <!-- Start Post -->
-            <div class="blog-post quote-post">
-              <!-- Post Content -->
-              <div class="post-content">
-                <div class="post-type"><i class="fa fa-quote-left"></i></div>
-                <div class="qoute-box">
-                  <a href="#">
-                    <h2>Throughout life people will make you mad, disrespect you and treat you bad. Let God deal with the things they do, cause hate in your heart will consume you too.</h2>
-                    <div class="qoute-author">John Kennedy</div>
-                  </a>
-                </div>
-                <ul class="post-meta">
-                  <li>By <a href="#">iThemesLab</a></li>
-                  <li>December 30, 2013</li>
-                  <li><a href="#">WordPress</a>, <a href="#">Graphic</a></li>
-                  <li><a href="#">4 Comments</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- End Post -->
+			</div>
+	
+		<!-- End Post -->
+          </div>
 
-            <!-- Start Pagination -->
-            <div id="pagination">
-              <span class="all-pages">Page 1 of 3</span>
-              <span class="current page-num">1</span>
-              <a class="page-num" href="#">2</a>
-              <a class="page-num" href="#">3</a>
-              <a class="next-page" href="#">Next</a>
-            </div>
-            <!-- End Pagination -->
+		
+		
+	  <div class="col-md-4">
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Information</span></h4>
+
+            <!-- Some Info -->
+            <p>You can get more informations about our company through below types.</p>
+
+            <!-- Divider -->
+            <div class="hr1" style="margin-bottom:10px;"></div>
+
+            <!-- Info - Icons List -->
+            <ul class="icons-list">
+              <li><i class="fa fa-globe">  </i> <strong>Address:</strong> No.294, Galle Rd, Nupe, Matara.</li>
+              <li><i class="fa fa-envelope-o"></i> <strong>Email:</strong> slankacabs@gmail.com</li>
+              <li><i class="fa fa-mobile"></i> <strong>Phone:</strong> +71 7 98 98 98</li>
+            </ul>
+
+            <!-- Divider -->
+            <div class="hr1" style="margin-bottom:15px;"></div>
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Working Hours</span></h4>
+
+            <!-- Info - List -->
+            <ul class="list-unstyled">
+              <li><strong>Monday - Friday</strong> - 9am to 5pm</li>
+              <li><strong>Saturday</strong> - 9am to 2pm</li>
+              <li><strong>Sunday</strong> - Closed</li>
+            </ul>
 
           </div>
-          <!-- End Blog Posts -->
-
-
-          <!--Sidebar-->
-          <div class="col-md-3 sidebar right-sidebar">
-
-            <!-- Search Widget -->
-            <div class="widget widget-search">
-              <form action="#">
-                <input type="search" placeholder="Enter Keywords..." />
-                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-              </form>
-            </div>
-
-            <!-- Categories Widget -->
-            <div class="widget widget-categories">
-              <h4>Categories <span class="head-line"></span></h4>
-              <ul>
-                <li>
-                  <a href="#">Brandign</a>
-                </li>
-                <li>
-                  <a href="#">Design</a>
-                </li>
-                <li>
-                  <a href="#">Development</a>
-                </li>
-                <li>
-                  <a href="#">Graphic</a>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Popular Posts widget -->
-            <div class="widget widget-popular-posts">
-              <h4>Popular Post <span class="head-line"></span></h4>
-              <ul>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="images/blog-01.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <h5><a href="#">How To Download The Google Fonts Catalog</a></h5>
-                    <span>Jul 29 2013</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="images/blog-02.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <h5><a href="#">How To Download The Google Fonts Catalog</a></h5>
-                    <span>Jul 29 2013</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="images/blog-03.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <h5><a href="#">How To Download The Google Fonts Catalog</a></h5>
-                    <span>Jul 29 2013</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Video Widget -->
-            <div class="widget">
-              <h4>Video <span class="head-line"></span></h4>
-              <div>
-				<iframe width="800" height="450" src="https://www.youtube.com/embed/KIZlanot3HI" frameborder="0" allowfullscreen></iframe>
-
-              </div>
-            </div>
-
-            <!-- Tags Widget -->
-            <div class="widget widget-tags">
-              <h4>Tags <span class="head-line"></span></h4>
-              <div class="tagcloud">
-                <a href="#">Portfolio</a>
-                <a href="#">Theme</a>
-                <a href="#">Mobile</a>
-                <a href="#">Design</a>
-                <a href="#">Wordpress</a>
-                <a href="#">Jquery</a>
-                <a href="#">CSS</a>
-                <a href="#">Modern</a>
-                <a href="#">Theme</a>
-                <a href="#">Icons</a>
-                <a href="#">Google</a>
-              </div>
-            </div>
-
-          </div>
-          <!--End sidebar-->
-
 
         </div>
+
       </div>
     </div>
-    <!-- End Content -->
+    <!-- End content -->
 
 
     <!-- Start Footer -->
@@ -873,6 +948,19 @@
   </div>
 
   <script type="text/javascript" src="js/script.js"></script>
+
+  <script type="text/javascript">
+    //Contact Form
+
+    $('#submit').click(function() {
+
+      $.post("php/send.php", $(".contact-form").serialize(), function(response) {
+        $('#success').html(response);
+      });
+      return false;
+
+    });
+  </script>
 
 </body>
 
