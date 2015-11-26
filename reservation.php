@@ -45,6 +45,7 @@ if (empty($_POST["driver"])) {
 //pickupLoc & dropoffLoc are optional
 $pickupLoc = ($_POST["pickupLoc"]);
 $dropoffLoc = ($_POST["dropoffLoc"]);
+
 }	
 				
 			function test_input($data) {
@@ -54,42 +55,44 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 				return $data;
 			}
 				
-			//database connection
-			if(isset($_POST["submit"])){
-				$mydb = new mysqli('localhost','slcabs','slcabs','slcabs');
-				if($mydb->connect_error){
-					die('Connect Error : '.$mydb->connect_errno.':'.$mydb->connect_error);
-				}
+		//	database connection
+		//	if(isset($_POST["submit"])){
+		//		$mydb = new mysqli('localhost','slcabs','slcabs','slcabs');
+		//		if($mydb->connect_error){
+		//			die('Connect Error : '.$mydb->connect_errno.':'.$mydb->connect_error);
+		//		}
+		//		
+		//		if(empty($vehicle) || empty($pickDate) || empty($dropoffDate) || empty($noOfPassengers) || empty($driver)){
+		//			$output = "";
+		//		}else{
+		//			$sql = "INSERT INTO reservation (vehicle, pickDate, pickTime, dropoffDate, dropoffTime, noOfPassengers, driver, pickupLoc, dropoffLoc) VALUES (
+		//				'$vehicle',
+		//				'$pickDate',
+		//				'$pickTime',
+		//				'$dropoffDate',
+		//				'$dropoffTime',
+		//				'$noOfPassengers',
+		//				'$driver',
+		//				'$pickupLoc',
+		//				'$dropoffLoc')";
+		//				
+		//			$insert = $mydb->query($sql);
 				
-				if(empty($vehicle) || empty($pickDate) || empty($dropoffDate) || empty($noOfPassengers) || empty($driver)){
-					$output = "";
-				}else{
-					$sql = "INSERT INTO reservation (vehicle, pickDate, pickTime, dropoffDate, dropoffTime, noOfPassengers, driver, pickupLoc, dropoffLoc) VALUES (
-						'$vehicle',
-						'$pickDate',
-						'$pickTime',
-						'$dropoffDate',
-						'$dropoffTime',
-						'$noOfPassengers',
-						'$driver',
-						'$pickupLoc',
-						'$dropoffLoc')";
-						
-					$insert = $mydb->query($sql);
-				
-					if($insert){
+					if(isset($_POST["submit"])){
 						$vehicle = $pickDate = $pickTime = $dropoffDate = $dropoffTime = $noOfPassengers = $driver = $pickupLoc = $dropoffLoc = "";
-						session_start();
-						$_SESSION["new"] = "";
-						header("Location: customerDetails.php");
+
+						//session_start();
+
+						
+
+						//header("Location: customerDetails.php");
 						
 					}else{
-						die("Error: {$mydb->errno} : {$mydb->error}");
+		//				die("Error: {$mydb->errno} : {$mydb->error}");
 					}
-				}
-				$mydb->close();
-			}
-
+				
+		//		$mydb->close();
+			
 			?>
 
 <!doctype html>
@@ -279,7 +282,7 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 			<div style = "margin-left:350px;">
 			<div class="style1"><?php echo $output;?></div>
 
-			<form id="reservation" action="" method="post"> 
+			<form id="reservation" action="customerDetails.php" method="post"> 
 						
 			<h3 class = "primary">Select a vehicle  <em style="color:red">*</em></h3>
 			<select id="car" name="vehicle" onChange="gotourl();" >
@@ -395,26 +398,25 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 			<div>
 			<label>Pick-up Location</label>
 			<select name="pickupLoc" >
-			<option value="pick_add">SLCabs Office</option>
-			<option value="pick_flight">Colombo Airport</option>
-			<option value="pick_other">Other</option>
+			<option value="SL Cabs office">SLCabs Office</option>
+			<option value="Colombo Airport">Colombo Airport</option>
+			<option value="Other">Other</option>
 			</select>
 			</div><br>
 
 			<div>
 			<label>Drop-off Location</label>
 			<select name="dropoffLoc" >
-			<option value="drop_add">SLCabs Office</option>
-			<option value="drop_flight">Colombo Airport</option>
-			<option value="drop_other">Other</option>
+			<option value="SL Cabs office">SLCabs Office</option>
+			<option value="Colombo Airport">Colombo Airport</option>
+			<option value="Other">Other</option>
 			</select>
 			</div><br>
-			
-			<input class="btn-system btn-large" style="margin-top:8px;" type="submit" name="submit" value="Reserve">
+
+			<input type="submit" name="submit" value="Reserve">
 
 			</form>
-			</div>
-          </div>
+		
           <!-- End Call Action -->
 
         </div>
@@ -562,12 +564,12 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
           <!-- Start Contact Widget -->
           <div class="col-md-3">
             <div class="footer-widget contact-widget">
-              <h4><img src="images/footer-margo.png" class="img-responsive" alt="Footer Logo" /></h4>
+              <h4><img src="images/logo.png" class="img-responsive" alt="Footer Logo" /></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
               <ul>
                 <li><span>Phone Number:</span> +01 234 567 890</li>
-                <li><span>Email:</span> company@company.com</li>
-                <li><span>Website:</span> www.yourdomain.com</li>
+                <li><span>Email:</span> contact@slcabs.com</li>
+                <li><span>Website:</span> www.slcabs.com</li>
               </ul>
             </div>
           </div>
@@ -582,7 +584,7 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
         <div class="copyright-section">
           <div class="row">
             <div class="col-md-6">
-              <p>&copy; 2014 Margo - All Rights Reserved</p>
+              <p>&copy; 2015 SLCabs - All Rights Reserved</p>
             </div>
             <div class="col-md-6">
               <ul class="footer-nav">
