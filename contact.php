@@ -55,6 +55,35 @@ function test_input($data) {
    $data = htmlspecialchars($data);
    return $data;
 }
+//database connection
+if(isset($_POST["submit"])){
+	$mydb = new mysqli('localhost','slcabs','slcabs','slcabs');
+	if($mydb->connect_error){
+		die('Connect Error : '.$mydb->connect_errno.':'.$mydb->connect_error);
+	}
+	if(empty($name) || empty($email) || empty($subject) || empty($message)){
+		$output ="";
+	}else{
+		$sql = "INSERT INTO contact(name, email, subject, message) VALUES (
+			'$name',
+			'$email',
+			'$subject',
+			'$message')";
+		
+		$insert = $mydb->query($sql);
+		
+		if($insert){
+			$name=$email=$subject=$message="";
+			session_start();
+			$_SESSION["new"] = "";
+			header("Location: contact.php");
+		}else{
+			die("Error: {$mydb->errno} : {$mydb->error}");
+		}
+			
+	}
+	$mydb->close();
+}
 
 ?>
 <!doctype html>
@@ -570,15 +599,38 @@ function test_input($data) {
             </form>
             <!-- End Contact Form -->
 
+			<!-- Post Content -->
+			<div class="post-content">
+			<div class="post-type"><i class="fa fa-link"></i></div>
+			<h2><a href="#">Comments</a></h2>
+			<ul class="post-meta">
+			  <li>By <a href="#">iThemesLab</a></li>
+			  <li>December 30, 2013</li>
+			  <li><a href="#">WordPress</a>, <a href="#">Graphic</a></li>
+			  <li><a href="#">4 Comments</a></li>
+			</ul>
+			<p>
+				<?php
+				echo $subject;
+				echo "<br>";
+				echo $message;
+				?>
+			</p>
+			
+			</div>
+	
+		<!-- End Post -->
           </div>
 
-          <div class="col-md-4">
+		
+		
+	  <div class="col-md-4">
 
             <!-- Classic Heading -->
             <h4 class="classic-title"><span>Information</span></h4>
 
             <!-- Some Info -->
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.</p>
+            <p>You can get more informations about our company through below types.</p>
 
             <!-- Divider -->
             <div class="hr1" style="margin-bottom:10px;"></div>
