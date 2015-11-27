@@ -1,9 +1,9 @@
 <?php
 
-$servername = 'u320613604_slcab';
-$username = 'u320613604_slcab';
-$password = '1234567';
-$dbname = 'slcab';
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'slcabs';
 
 $conn = new mysqli($servername,$username,$password,$dbname);
 

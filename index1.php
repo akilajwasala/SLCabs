@@ -150,7 +150,7 @@ if(!isset($_SESSION["sess_user"])){
               </li>
               <li><a href="contact.html">Contact</a></li>
 			        <li>
-                <a href="logout.php">Logout</a>
+                <a href="logout1.php">Logout</a>
               </li>
             </ul>
             <!-- End Navigation List -->
@@ -173,7 +173,7 @@ if(!isset($_SESSION["sess_user"])){
               </li>
               <li><a href="contact.html">Contact</a></li>
 			        <li>
-                <a href="logout.php">Logout</a>
+                <a href="logout1.php">Logout</a>
               </li>
         </ul>
         <!-- Mobile Menu End -->
@@ -277,8 +277,8 @@ if(!isset($_SESSION["sess_user"])){
               <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
             </div>
             <div class="service-content">
-              <h4>High Quality Theme</h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p>
+              <h4>Big collection of vehicles</h4>
+              <p>You can rent any kind of vehicles.</p>
             </div>
           </div>
           <!-- End Service Icon 1 -->
@@ -286,10 +286,10 @@ if(!isset($_SESSION["sess_user"])){
           <!-- Start Service Icon 2 -->
           <div class="col-md-3 col-sm-6 service-box service-center">
             <div class="service-icon">
-              <i class="fa fa-eye icon-medium-effect icon-effect-2"></i>
+              <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
             </div>
             <div class="service-content">
-              <h4>Retina Display Ready</h4>
+              <h4>Comprehensive insurance</h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p>
             </div>
           </div>
@@ -298,10 +298,10 @@ if(!isset($_SESSION["sess_user"])){
           <!-- Start Service Icon 3 -->
           <div class="col-md-3 col-sm-6 service-box service-center">
             <div class="service-icon">
-              <i class="fa fa-code icon-medium-effect icon-effect-2 gray-icon"></i>
+              <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
             </div>
             <div class="service-content">
-              <h4>Clean Modern Code</h4>
+              <h4>24 hour break down service</h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p>
             </div>
           </div>
@@ -310,10 +310,10 @@ if(!isset($_SESSION["sess_user"])){
           <!-- Start Service Icon 4 -->
           <div class="col-md-3 col-sm-6 service-box service-center">
             <div class="service-icon">
-              <i class="fa fa-bolt icon-medium-effect icon-effect-2 gray-icon"></i>
+              <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
             </div>
             <div class="service-content">
-              <h4>Fast & Light Theme</h4>
+              <h4>Child seats - free of charge</h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p>
             </div>
           </div>

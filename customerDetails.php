@@ -308,39 +308,34 @@ if(isset($_POST["submit"])){
                 <input type="hidden" name="dropoffLoc" value="<?php echo $dropoffLoc ?>"/>
 
                   <div class="form-group">
-                      <label>Full Name :  </label><input type="text" id="name" name="name" class="form-control" placeholder="Ex :- Akila wasala">
+                      <label>Full Name :  </label><br><input type="text" id="name" name="name" class="form-control" placeholder="Ex :- Akila wasala"><br><br>
                   </div>
-                  <br><br><br>
+                  
 
                   <div class="form-group">
-                      <label>Enter the email address :  </label><input type="email" id="textF" name="email" class="form-control" placeholder="*************@gmail.com"><br><br>
+                      <label>Enter the email address :  </label><br><input type="email" id="textF" name="email" class="form-control" placeholder="*************@gmail.com"><br><br>
                   </div>
-                  <br><br>
 
                   <div class="form-group">
-                      <label>Country :  </label><input type="text" id="textF" name="country" class="form-control" placeholder="Sri Lanka"><br/><br>
+                      <label>Country :  </label><br><input type="text" id="textF" name="country" class="form-control" placeholder="Sri Lanka"><br/><br>
                   </div>
-                  <br>
+                  
                   
                   <div class="form-group">
-                    <br><label>ID card No or Passport No :  </label><input type="text" id="textF" name="passportNo" class="form-control" placeholder="**********V"><br><br>       
+                    <label>ID card No or Passport No :  </label><br><input type="text" id="textF" name="passportNo" class="form-control" placeholder="**********V"><br><br>       
                   </div>
-                  <br>
 
                   <div class="form-group">
-                    <br><label>Contact No :  </label><input type="text" id="textF" name="contactNo" class="form-control" placeholder="+947********"><br><br>       
+                    <label>Contact No :  </label><br><input type="text" id="textF" name="contactNo" class="form-control" placeholder="+947********"><br><br>       
                   </div>
-                  <br>
 
                    <div class="form-group">
-                    <br><label>Fax :  </label><input type="text" id="textF" name="fax" class="form-control" placeholder="0************"><br><br>       
+                    <label>Fax :  </label><br><input type="text" id="textF" name="fax" class="form-control" placeholder="0************"><br><br>       
                   </div>
-                  <br>
-
+            
                   <div class="form-group">
-                    <br><label>Comments :  </label><input type="text" id="textF" name="comments" size="30" class="form-control" placeholder="Special requirements"> <br><br>       
+                    <label>Comments :  </label><br><input type="text" id="textF" name="comments" size="30" class="form-control" placeholder="Special requirements"> <br><br>       
                   </div>
-                  <br>
 
                   <div>
                   <button type="submit" class="btn btn-primary" name="submit1">Send Request</button>
@@ -372,7 +367,7 @@ if(isset($_POST["submit"])){
                   </div>
                   <!-- Toggle Content -->
                   <div id="collapse-1" class="panel-collapse collapse in">
-                    <div class="panel-body"><img class="img-thumbnail image-text" style="float:left; width:150px;" alt="" src="images/selected.jpg" /> 
+                    <div class="panel-body"><img class="img-thumbnail image-text" style="float:left; width:150px;" alt="" src="images/".<?php echo $vehicle ?>.".jpg" /> 
                             <form class="navbar-form navbar-left" id="req_form" action="" method="post">
 
                         <div class="form-group">

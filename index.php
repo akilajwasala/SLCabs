@@ -3,11 +3,14 @@
 if(isset($_POST["submit"])){
   $user = mysql_real_escape_string($_POST["username"]);
   $pass = $_POST["password"];
+  //$custID;
   
-  $con = mysql_connect('localhost','test',' ') or die (mysql_error());
-  mysql_select_db('test') or die ("cannot select DB");    
+  $con = mysql_connect('localhost','root','') or die (mysql_error());
+  mysql_select_db('slcabs') or die ("cannot select DB");    
     
-  $sql = mysql_query("SELECT * FROM employee WHERE username='".$user."' AND password='".$pass."'");
+  $sql = mysql_query("SELECT * FROM login WHERE username='".$user."' AND password='".$pass."'");
+  //$sql1 = mysql_query("SELECT custID FROM login WHERE username='".$user."'");
+  
     
   $count =  mysql_num_rows($sql);
     
