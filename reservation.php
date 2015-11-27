@@ -98,11 +98,7 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 <html lang="en">
 
 <head>
-
-  <!-- Basic -->
-  <title>SLCabs | Reserve</title>
-
-  <!-- Define Charset -->
+  <title>SLCabs | Home</title>
   <meta charset="utf-8">
 
   <!-- Responsive Metatag -->
@@ -111,7 +107,6 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
   <!-- Page Description and Author -->
   <meta name="description" content="Margo - Responsive HTML5 Template">
   <meta name="author" content="iThemesLab">
-
 
   <!-- Bootstrap CSS  -->
   <link rel="stylesheet" href="asset/css/bootstrap.min.css" type="text/css" media="screen">
@@ -128,8 +123,12 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
   <!-- Responsive CSS Styles  -->
   <link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
 
-  <!-- Color CSS Styles  -->
+  <!-- Css3 Transitions Styles  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css" media="screen">
+
+  <!-- Color CSS Styles-->
   <link rel="stylesheet" type="text/css" href="css/colors/pink.css" title="pink" media="screen" />
+
 
   <!-- Margo JS  -->
   <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -164,17 +163,17 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
     <header class="clearfix">
 
       <!-- Start Top Bar -->
-      <div class="top-bar">
+      <div class="top-bar dark-bar">
         <div class="container">
           <div class="row">
             <div class="col-md-6">
               <!-- Start Contact Info -->
               <ul class="contact-details">
-                <li><a href="#"><i class="fa fa-map-marker"></i> House-54/A, London, UK</a>
+                <li><a href="#"><i class="fa fa-map-marker"></i> No 294, Galle Rd, Nupe, Matara.</a>
                 </li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> info@yourcompany.com</a>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> slankacabs@gmail.com</a>
                 </li>
-                <li><a href="#"><i class="fa fa-phone"></i> +12 345 678 000</a>
+                <li><a href="#"><i class="fa fa-phone"></i> +71 7 98 98 98</a>
                 </li>
               </ul>
               <!-- End Contact Info -->
@@ -224,7 +223,10 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
             <!-- Start Navigation List -->
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a href="index.html">Home</a>
+                <a class="active" href="index.html">Home</a>
+              </li>
+			  <li>
+                <a href="login.html">Logout</a>
               </li>
             </ul>
             <!-- End Navigation List -->
@@ -234,7 +236,10 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
         <!-- Mobile Menu Start -->
         <ul class="wpb-mobile-menu">
 			  <li>
-                <a href="index.html">Home</a>
+                <a class="active" href="index.html">Home</a>
+              </li>
+			  <li>
+                <a href="login.html">Logout</a>
               </li>
         </ul>
         <!-- Mobile Menu End -->
@@ -244,7 +249,6 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 
     </header>
     <!-- End Header -->
-
 
     <!-- Start Page Banner -->
     <div class="page-banner no-subtitle">
@@ -292,13 +296,13 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 			<option value="2325"<?php if($vehicle=="2325"){?> selected <?php } ?>>Mitsubishi Outlander 4X4</option>
 			<option value="2227"<?php if($vehicle=="2227"){?> selected <?php } ?>>Mitsubishi Montero GDI 4X4</option>
 			<option value="1839"<?php if($vehicle=="1839"){?> selected <?php } ?>>Toyota Vigo Hi Lux 4X4</option>
-			</select><span class="error"> <?php echo $vehicleEr;?></span><br><br>
+			</select><span style="color:red"> <?php echo $vehicleEr;?></span><br><br>
 								
 			<h3 class="primary">Select the book reservation period & Location</h3>
 
 			<div>
 			<label for="from">Pick up day <em style="color:red">*</em> (yyyy-mm-dd)</label><br>
-			<input type="date" name="pickDate" value="<?php echo $pickDate;?>"><span class="error"> <?php echo $pickDateEr;?></span>
+			<input type="date" style="height:22px;" name="pickDate" value="<?php echo $pickDate;?>"><span style="color:red"> <?php echo $pickDateEr;?></span>
 			at 
 			<select style="width:55px;" name="pickuphr" >
 			<option value="">--</option>
@@ -333,7 +337,7 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 
 			<div>
 			<label for="from">Drop off day <em style="color:red">*</em> (yyyy-mm-dd)</label><br>
-			<input type="date" name="dropoffDate" value="<?php echo $dropoffDate;?>"><span class="error"> <?php echo $dropoffDateEr;?></span>
+			<input type="date" style="height:22px;" name="dropoffDate" value="<?php echo $dropoffDate;?>"><span style="color:red"><?php echo $dropoffDateEr;?></span>
 			at 
 			<select style="width:55px;" name="dropoffhr" >
 			<option value="">--</option>
@@ -380,7 +384,7 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 			<option value="8"<?php if($noOfPassengers=="8"){?> selected <?php } ?>>8</option>
 			<option value="9"<?php if($noOfPassengers=="9"){?> selected <?php } ?>>9</option>
 			<option value="10"<?php if($noOfPassengers=="10"){?> selected <?php } ?>>10</option>
-			</select><span class="error"> <?php echo $noOfPassengersEr;?></span>
+			</select><span style="color:red"> <?php echo $noOfPassengersEr;?></span>
 			</div><br>
 
 			<div>
@@ -389,7 +393,7 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
 			<option value="" selected="selected">--</option>
 			<option value="Yes"<?php if($driver=="Yes"){?> selected <?php } ?>>Yes</option>
 			<option value="No"<?php if($driver=="No"){?> selected <?php } ?>>No</option>
-			</select><span class="error"> <?php echo $driverEr;?></span>
+			</select><span style="color:red"> <?php echo $driverEr;?></span>
 			</div><br>
 
 			<div>
@@ -605,106 +609,6 @@ $dropoffLoc = ($_POST["dropoffLoc"]);
   <!-- Go To Top Link -->
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-  <!-- Style Switcher -->
-  <div class="switcher-box">
-    <a class="open-switcher show-switcher"><i class="fa fa-cog fa-2x"></i></a>
-    <h4>Style Switcher</h4>
-    <span>12 Predefined Color Skins</span>
-    <ul class="colors-list">
-      <li>
-        <a onClick="setActiveStyleSheet('blue'); return false;" title="Blue" class="blue"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('sky-blue'); return false;" title="Sky Blue" class="sky-blue"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('cyan'); return false;" title="Cyan" class="cyan"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('jade'); return false;" title="Jade" class="jade"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('green'); return false;" title="Green" class="green"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('purple'); return false;" title="Purple" class="purple"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('pink'); return false;" title="Pink" class="pink"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('red'); return false;" title="Red" class="red"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('orange'); return false;" title="Orange" class="orange"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('yellow'); return false;" title="Yellow" class="yellow"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('peach'); return false;" title="Peach" class="peach"></a>
-      </li>
-      <li>
-        <a onClick="setActiveStyleSheet('beige'); return false;" title="Biege" class="beige"></a>
-      </li>
-    </ul>
-    <span>Top Bar Color</span>
-    <select id="topbar-style" class="topbar-style">
-      <option value="1">Light (Default)</option>
-      <option value="2">Dark</option>
-      <option value="3">Color</option>
-    </select>
-    <span>Layout Style</span>
-    <select id="layout-style" class="layout-style">
-      <option value="1">Wide</option>
-      <option value="2">Boxed</option>
-    </select>
-    <span>Patterns for Boxed Version</span>
-    <ul class="bg-list">
-      <li>
-        <a href="#" class="bg1"></a>
-      </li>
-      <li>
-        <a href="#" class="bg2"></a>
-      </li>
-      <li>
-        <a href="#" class="bg3"></a>
-      </li>
-      <li>
-        <a href="#" class="bg4"></a>
-      </li>
-      <li>
-        <a href="#" class="bg5"></a>
-      </li>
-      <li>
-        <a href="#" class="bg6"></a>
-      </li>
-      <li>
-        <a href="#" class="bg7"></a>
-      </li>
-      <li>
-        <a href="#" class="bg8"></a>
-      </li>
-      <li>
-        <a href="#" class="bg9"></a>
-      </li>
-      <li>
-        <a href="#" class="bg10"></a>
-      </li>
-      <li>
-        <a href="#" class="bg11"></a>
-      </li>
-      <li>
-        <a href="#" class="bg12"></a>
-      </li>
-      <li>
-        <a href="#" class="bg13"></a>
-      </li>
-      <li>
-        <a href="#" class="bg14"></a>
-      </li>
-    </ul>
-  </div>
 
   <script type="text/javascript" src="js/script.js"></script>
 

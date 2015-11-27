@@ -3188,7 +3188,7 @@ and (min-width : 551px){
     color:#fff;
 }
 @media (min-width: 992px) {
-  #portfolio-list li .body {
+  #portfolio-list li .  {
       display: block;
   }
 }
