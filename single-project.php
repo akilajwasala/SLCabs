@@ -1,12 +1,44 @@
 <!doctype html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "slcabs";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT * FROM vehicles";
+$result = $conn->query($sql);
+$id = $_GET['id'];
+$sql = "SELECT * FROM vehicles where id=$id";
+$select = $conn->query($sql);
+$selected = $select->fetch_assoc();
+
+if ($result->num_rows > 0 || $selected->num_rows > 0 ) {
+    // output data of each row
+
+} else {
+    echo "No vehicles Available";
+}
+$conn->close();
+
+?>
+
+
 <html lang="en">
 
 <head>
 
   <!-- Basic -->
-  <title>SLCabs | Vehicles</title>
+  <title>Margo | Portfolio</title>
 
   <!-- Define Charset -->
   <meta charset="utf-8">
@@ -35,18 +67,18 @@
   <link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
 
   <!-- Color CSS Styles  -->
-  <!--<link rel="stylesheet" type="text/css" href="css/colors/red.css" title="red" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/red.css" title="red" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/jade.css" title="jade" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/blue.css" title="blue" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/beige.css" title="beige" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/cyan.css" title="cyan" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/green.css" title="green" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/orange.css" title="orange" media="screen" />
-  <link rel="stylesheet" type="text/css" href="css/colors/peach.css" title="peach" media="screen" /> -->
+  <link rel="stylesheet" type="text/css" href="css/colors/peach.css" title="peach" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/pink.css" title="pink" media="screen" />
-  <!--<link rel="stylesheet" type="text/css" href="css/colors/purple.css" title="purple" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/colors/purple.css" title="purple" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/colors/sky-blue.css" title="sky-blue" media="screen" />
-  <link rel="stylesheet" type="text/css" href="css/colors/yellow.css" title="yellow" media="screen" /> -->
+  <link rel="stylesheet" type="text/css" href="css/colors/yellow.css" title="yellow" media="screen" />
 
 
   <!-- Margo JS  -->
@@ -79,20 +111,20 @@
 
     <!-- Start Header -->
     <div class="hidden-header"></div>
-		<header class="clearfix">
+    <header class="clearfix">
 
       <!-- Start Top Bar -->
-      <div class="top-bar dark-bar">
+      <div class="top-bar">
         <div class="container">
           <div class="row">
             <div class="col-md-6">
               <!-- Start Contact Info -->
               <ul class="contact-details">
-                <li><a href="#"><i class="fa fa-map-marker"></i> No 294, Galle Rd, Nupe, Matara.</a>
+                <li><a href="#"><i class="fa fa-map-marker"></i> No 294, Galle Rd, Nupe, Matara</a>
                 </li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> slankacabs@gmail.com</a>
                 </li>
-                <li><a href="#"><i class="fa fa-phone"></i> +71 7 98 98 98</a>
+                <li><a href="#"><i class="fa fa-phone"></i> +94 71 7 98 98 98</a>
                 </li>
               </ul>
               <!-- End Contact Info -->
@@ -144,19 +176,19 @@
               <li>
                 <a href="index.html">Home</a>
               </li>
-			  <li>
-                <a class = "active" href="vehicle.html">Vehicles</a>
+              <li>
+                <a class="active"  href="about.html">Vehicles</a>
               </li>
               <li>
-                <a href="blog.html">Tours</a>
+                <a href="#">Tours</a>
               </li>
-			  <li>
-                <a href="about.html">About</a>
+              <li>
+                <a href="portfolio-3.html">About</a>
               </li>
-              <li><a href="contact.html">Contact</a></li>
-			  <li>
-                <a href="login.html">Login</a>
+              <li>
+                <a href="blog.html">Contact</a>
               </li>
+              <li><a href="contact.html">Login</a></li>
             </ul>
             <!-- End Navigation List -->
           </div>
@@ -164,22 +196,24 @@
 
         <!-- Mobile Menu Start -->
         <ul class="wpb-mobile-menu">
-			  <li>
-                <a class="active" href="index.html">Home</a>
-              </li>
-			  <li>
-                <a href="vehicle.html">Vehicles</a>
-              </li>
-              <li>
-                <a href="blog.html">Tours</a>
-              </li>
-			  <li>
-                <a href="about.html">About</a>
-              </li>
-              <li><a href="contact.html">Contact</a></li>
-			  <li>
-                <a href="login.html">Login</a>
-              </li>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a class="active" href="about.html">Vehicles</a>
+          </li>
+          <li>
+            <a href="#">Tours</a>
+          </li>
+          <li>
+            <a  href="portfolio-3.html">About</a>
+          </li>
+          <li>
+            <a href="blog.html">Contact</a>
+          </li>
+          <li>
+            <a href="contact.html">Login</a>
+          </li>
         </ul>
         <!-- Mobile Menu End -->
 
@@ -188,27 +222,6 @@
 
     </header>
     <!-- End Header -->
-
-
-    <!-- Start Page Banner -->
-    <div class="page-banner">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>Vehicles</h2>
-            <p>SLCabs Gallery</p>
-          </div>
-          <div class="col-md-6">
-            <ul class="breadcrumbs">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Vehicles</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Page Banner -->
-
 
     <!-- Start Content -->
     <div id="content">
@@ -219,270 +232,77 @@
           <div class="project-media col-md-8">
             <div class="touch-slider project-slider">
               <div class="item">
-                <a class="lightbox" title="This is an image title" href="images/portfolio-1/1.png" data-lightbox-gallery="gallery2">
-                  <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                  <img alt="" src="images/portfolio-1/1.png" style="width:100%;">
-                </a>
-              </div>
-              <div class="item">
-                <a class="lightbox" title="This is an image title" href="images/portfolio-1/4.png" data-lightbox-gallery="gallery2">
-                  <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                  <img alt="" src="images/portfolio-1/4.png" style="width:100%;">
-                </a>
-              </div>
-              <div class="item">
-                <a class="lightbox" title="This is an image title" href="images/portfolio-1/12.png" data-lightbox-gallery="gallery2">
-                  <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                  <img alt="" src="images/portfolio-1/12.png" style="width:100%;">
+                <a class="lightbox" title="This is an image title" data-lightbox-gallery="gallery2">
+                <!--
+                  <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div> 
+                -->
+                  <img alt="" src="images/vehicles/<?php echo $selected['pic'];?>" style="width:100%;">
                 </a>
               </div>
             </div>
           </div>
           <!-- End Single Project Slider -->
-
           <!-- Start Project Content -->
+
           <div class="project-content col-md-4">
-            <h4><span>Description</span></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed facilisis purus. Donec interdum massa at ipsum vehicula tristique. Maecenas bibendum dictum tincidunt. Sed nec justo ac libero consequat tincidunt. Cras eget molestie justo.</p>
-            <h4><span>Details</span></h4>
+            <h4><span><?php echo $selected['make']." ".$selected['type'];?></span></h4>
             <ul>
-              <li><strong>Client:</strong> iThemesLab</li>
-              <li><strong>Status:</strong> Finish on 30 Dec, 2013</li>
-              <li><strong>Skills:</strong> creative, web design</li>
+              <li><strong>Category: </strong> <?php echo $selected['category'];?></li>
+              <li><strong>Make : </strong> <?php echo $selected['make'];?></li>
+              <li><strong>Type : </strong> <?php echo $selected['type'];?></li>
+              <li><strong>Color: </strong> <?php echo $selected['color'];?></li>
+              <li><strong>Seats: </strong> <?php echo $selected['seats'];?></li>
+              <li><strong>Doors: </strong> <?php echo $selected['doors'];?></li>
+              <li><strong>GPS: </strong> <?php echo $selected['category'];?></li>
+              <li><strong>Rental: </strong> <?php echo "USD ".$selected['rental'];?></li>
             </ul>
-            <div class="post-share">
-              <span>Share This:</span>
-              <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-              <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-              <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-            </div>
+
+            <ul>
+              <a class="main-button" href="#">Reserve </a>
+            </ul>
+
           </div>
           <!-- End Project Content -->
 
         </div>
 
+
         <!-- Start Recent Projects Carousel -->
         <div class="recent-projects">
-          <h4 class="title"><span>More Vehicles</span></h4>
+          <h4 class="title"><span>Vehicles</span></h4>
           <div class="projects-carousel touch-carousel">
 
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a class="lightbox" data-lightbox-type="ajax" href="https://vimeo.com/78468485">
-                    <div class="thumb-overlay"><i class="fa fa-play"></i></div>
-                    <img alt="" src="images/portfolio-1/1.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Website</span>
-                    <span>Drawing</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+        <?php 
+
+        foreach ($result as $row) {
+          # code...
+        
+        ?>
 
             <div class="portfolio-item item">
               <div class="portfolio-border">
                 <div class="portfolio-thumb">
-                  <a class="lightbox" title="This is an image title" href="images/portfolio-big-01.jpg">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/2.png" />
+                  <a  title="<?php echo $row['make']." ".$row['type']?>" href="single-project.php?id=<?php echo $row['id'];?>">
+                    <!--<div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>-->
+                    <img alt="" src="images/vehicles/<?php echo $row['pic'];?>" />
                   </a>
                 </div>
                 <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Logo</span>
-                    <span>Animation</span>
+                  <a href="single-project.php?id=<?php echo $row['id'];?>">
+                    <h4><?php echo $row['category']; ?></h4>
+                    <span><?php echo $row['make']; ?></span>
+                    <span><?php echo $row['type']; ?></span>
                   </a>
                 </div>
               </div>
             </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/3.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Drawing</span>
-                  </a>
-                </div>
+        <?php
+        }
+        ?>
               </div>
             </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/4.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Website</span>
-                    <span>Ilustration</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a class="lightbox" title="This is an image title" href="images/portfolio-big-02.jpg">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/5.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Logo</span>
-                    <span>Drawing</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/6.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Animation</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a class="lightbox" title="This is an image title" href="images/portfolio-big-03.jpg">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/7.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Website</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/8.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Ilustration</span>
-                    <span>Animation</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/9.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Ilustration</span>
-                    <span>Animation</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/10.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Ilustration</span>
-                    <span>Animation</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/11.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Ilustration</span>
-                    <span>Animation</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item item">
-              <div class="portfolio-border">
-                <div class="portfolio-thumb">
-                  <a href="#">
-                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                    <img alt="" src="images/portfolio-1/12.png" />
-                  </a>
-                </div>
-                <div class="portfolio-details">
-                  <a href="#">
-                    <h4>Lorem Ipsum Dolor</h4>
-                    <span>Ilustration</span>
-                    <span>Animation</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
         <!-- End Recent Projects Carousel -->
+
 
       </div>
     </div>

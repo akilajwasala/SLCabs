@@ -338,7 +338,7 @@ if(isset($_POST["submit"])){
                   </div>
 
                   <div>
-                  <button type="submit" class="btn btn-primary" name="submit1">Send Request</button>
+                  <button type="submit" class="slider btn btn-system btn-small" name="submit1">Send Request</button>
                   </div>
                   <br>
 
@@ -367,7 +367,7 @@ if(isset($_POST["submit"])){
                   </div>
                   <!-- Toggle Content -->
                   <div id="collapse-1" class="panel-collapse collapse in">
-                    <div class="panel-body"><img class="img-thumbnail image-text" style="float:left; width:150px;" alt="" src="images/".<?php echo $vehicle ?>.".jpg" /> 
+                    <div class="panel-body"><img class="img-thumbnail image-text" style="float:left; width:150px;" alt="" src="images/Vehicles/<?php echo $vehicle; ?>.jpg" /> 
                             <form class="navbar-form navbar-left" id="req_form" action="" method="post">
 
                         <div class="form-group">
@@ -459,19 +459,16 @@ if(isset($_POST["submit"])){
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
                   <img alt="" src="images/team/fc1.jpg" />
-                  <div class="member-name">John Doe <span>Developer</span></div>
+                  <div class="member-name">Everything is <span>Negotiatable</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <p>Just call us and we'll negotiate the rates,services as you want!</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
                   <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                   <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                  <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
                 </div>
               </div>
             </div>
@@ -483,19 +480,16 @@ if(isset($_POST["submit"])){
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
                   <img alt="" src="images/team/fc2.jpg" />
-                  <div class="member-name">Silly Sally <span>Developer</span></div>
+                  <div class="member-name">Airport <span>Pickup</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <p>Just reserve your vehicle so we'll pick you by the airport ontime</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
                   <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                   <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                  <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
                 </div>
               </div>
             </div>
@@ -507,19 +501,16 @@ if(isset($_POST["submit"])){
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
                   <img alt="" src="images/team/fc3.jpg" />
-                  <div class="member-name">Chris John <span>Developer</span></div>
+                  <div class="member-name">The Best <span>Services</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <p>We'll provide the best service for your valuable money</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
                   <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                   <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                  <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
                 </div>
               </div>
             </div>
@@ -531,19 +522,16 @@ if(isset($_POST["submit"])){
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
                   <img alt="" src="images/team/fc4.jpg" />
-                  <div class="member-name">Sara John <span>Developer</span></div>
+                  <div class="member-name">FAQ <span>???????</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <p>Just contact us :)</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
                   <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                   <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                  <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
                 </div>
               </div>
             </div>
@@ -555,61 +543,7 @@ if(isset($_POST["submit"])){
           <!-- Divider -->
           <div class="hr1" style="margin-bottom:50px;"></div>
 
-          <!-- Start Clients Carousel -->
-          <div class="our-clients">
-
-            <!-- Classic Heading -->
-            <h4 class="classic-title"><span>Our Services </span></h4>
-
-            <div class="clients-carousel custom-carousel touch-carousel" data-appeared-items="5">
-
-              <!-- Client 1 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c1.png" alt="" /></a>
-              </div>
-
-              <!-- Client 2 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c2.png" alt="" /></a>
-              </div>
-
-              <!-- Client 3 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c3.png" alt="" /></a>
-              </div>
-
-              <!-- Client 4 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c4.png" alt="" /></a>
-              </div>
-
-              <!-- Client 5 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c5.png" alt="" /></a>
-              </div>
-
-              <!-- Client 6 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c6.png" alt="" /></a>
-              </div>
-
-              <!-- Client 7 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c7.png" alt="" /></a>
-              </div>
-
-              <!-- Client 8 -->
-              <div class="client-item item">
-                <a href="#"><img src="images/c8.png" alt="" /></a>
-              </div>
-
-            </div>
-          </div>
-          <!-- End Clients Carousel -->
-
-
-        </div>
-      </div>
+          
     </div>
     <!-- End content -->
 
@@ -621,14 +555,7 @@ if(isset($_POST["submit"])){
 
           <!-- Start Subscribe & Social Links Widget -->
           <div class="col-md-3">
-            <div class="footer-widget mail-subscribe-widget">
-              <h4>Get in touch<span class="head-line"></span></h4>
-              <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
-              <form class="subscribe">
-                <input type="text" placeholder="mail@example.com">
-                <input type="submit" class="btn-system" value="Send">
-              </form>
-            </div>
+            
             <div class="footer-widget social-widget">
               <h4>Follow Us<span class="head-line"></span></h4>
               <ul class="social-icons">
@@ -641,27 +568,6 @@ if(isset($_POST["submit"])){
                 <li>
                   <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
                 </li>
-                <li>
-                  <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-                </li>
-                <li>
-                  <a class="linkdin" href="#"><i class="fa fa-linkedin"></i></a>
-                </li>
-                <li>
-                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                </li>
-                <li>
-                  <a class="tumblr" href="#"><i class="fa fa-tumblr"></i></a>
-                </li>
-                <li>
-                  <a class="instgram" href="#"><i class="fa fa-instagram"></i></a>
-                </li>
-                <li>
-                  <a class="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a>
-                </li>
-                <li>
-                  <a class="skype" href="#"><i class="fa fa-skype"></i></a>
-                </li>
               </ul>
             </div>
           </div>
@@ -671,23 +577,7 @@ if(isset($_POST["submit"])){
 
           <!-- Start Twitter Widget -->
           <div class="col-md-3">
-            <div class="footer-widget twitter-widget">
-              <h4>Twitter Feed<span class="head-line"></span></h4>
-              <ul>
-                <li>
-                  <p><a href="#">@GrayGrids </a> Lorem ipsum dolor et, consectetur adipiscing eli.</p>
-                  <span>28 February 2014</span>
-                </li>
-                <li>
-                  <p><a href="#">@GrayGrids </a> Lorem ipsum dolor et, consectetur adipiscing eli.An Fusce eleifend aliquet nis application.</p>
-                  <span>26 February 2014</span>
-                </li>
-                <li>
-                  <p><a href="#">@GrayGrids </a> Lorem ipsum dolor et, consectetur adipiscing eli.</p>
-                  <span>28 February 2014</span>
-                </li>
-              </ul>
-            </div>
+            
           </div>
           <!-- .col-md-3 -->
           <!-- End Twitter Widget -->
@@ -695,56 +585,7 @@ if(isset($_POST["submit"])){
 
           <!-- Start Flickr Widget -->
           <div class="col-md-3">
-            <div class="footer-widget flickr-widget">
-              <h4>Flicker Feed<span class="head-line"></span></h4>
-              <ul class="flickr-list">
-                <li>
-                  <a href="images/flickr-01.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-01.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-02.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-02.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-03.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-03.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-04.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-04.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-05.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-05.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-06.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-06.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-07.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-07.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-08.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-08.jpg">
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flickr-09.jpg" class="lightbox">
-                    <img alt="" src="images/flickr-09.jpg">
-                  </a>
-                </li>
-              </ul>
-            </div>
+            
           </div>
           <!-- .col-md-3 -->
           <!-- End Flickr Widget -->
@@ -753,8 +594,8 @@ if(isset($_POST["submit"])){
           <!-- Start Contact Widget -->
           <div class="col-md-3">
             <div class="footer-widget contact-widget">
-              <h4><img src="images/footer-margo.png" class="img-responsive" alt="Footer Logo" /></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <h4><img src="images/logo.png" class="img-responsive" alt="Footer Logo" /></h4>
+              <p>Rent,reserve a vehicle online and take the booked vehicle <br>where ever they want in sri lanka</p>
               <ul>
                 <li><span>Phone Number:</span> +01 234 567 890</li>
                 <li><span>Email:</span> company@company.com</li>

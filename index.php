@@ -168,7 +168,7 @@ if(isset($_POST["submit"])){
                 <a class="active" href="index.html">Home</a>
               </li>
 			        <li>
-                <a href="vehicles.html">Vehicles</a>
+                <a href="portfolio-3.php">Vehicles</a>
               </li>
               <li>
                 <a href="blog.html">Tours</a>
@@ -185,7 +185,10 @@ if(isset($_POST["submit"])){
                       <form action="" method="POST">
                       <div><strong>Username</strong><input type="text" name="username" placeholder="Johny@Dep"></div>
                       <div style="padding-top: 10px;"><strong>Password</strong><input type="password" name="password" placeholder="*******"></div>
-                      <div style="padding-top: 10px; padding-bottom: 10px;"><input type="submit" name="submit" value="login"></div>
+                      <div style="padding-top: 10px; padding-bottom: 10px;">
+                        <input type="submit" name="submit" value="Login">
+                        <input type="submit" name="submit" value="Register">
+                      </div>
                       </form>
                       </center>
                 </ul>
@@ -201,7 +204,7 @@ if(isset($_POST["submit"])){
                 <a class="active" href="index.html">Home</a>
               </li>
 			        <li>
-                <a href="vehicles.html">Vehicles</a>
+                <a href="portfolio-3.php">Vehicles</a>
               </li>
               <li>
                 <a href="blog.html">Tours</a>
@@ -734,9 +737,9 @@ if(isset($_POST["submit"])){
             <div class="footer-widget mail-subscribe-widget">
               <h4>Get in touch<span class="head-line"></span></h4>
               <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
-              <form class="subscribe">
-                <input type="text" placeholder="mail@example.com">
-                <input type="submit" class="btn-system" value="Send">
+              <form class="subscribe" action="admin_login2.php">
+                <label>Administrator</label><br>
+                <input type="submit" class="btn-system" value="Login">
               </form>
             </div>
             <div class="footer-widget social-widget">

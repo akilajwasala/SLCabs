@@ -38,7 +38,7 @@
       <div class="modal-body">
           <form class="form col-md-12 center-block" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
             <div class="form-group">
-              <input type="text" name="email" class="form-control input-lg" placeholder="Email" required>
+              <input type="text" name="email" class="form-control input-lg" placeholder="Username" required>
             </div>
             <div class="form-group">
               <input type="password" name="password" class="form-control input-lg" placeholder="Password" required>
